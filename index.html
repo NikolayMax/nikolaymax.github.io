@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Николай — Услуги программиста | Разработка ботов, автоматизация, веб-разработка</title>
-    <meta name="description" content="Заказать разработку Telegram-ботов, скриптов автоматизации и веб-сайтов. Профессиональные услуги программиста-разработчика. API-интеграции, автоматизация бизнес-процессов.">
-    <meta name="keywords" content="разработка ботов, услуги программиста, заказать бота, telegram бот, автоматизация, веб-разработка, программист на заказ, Николай">
+    <title>Николай — Услуги 1С-программиста | Доработка, интеграции, сопровождение</title>
+    <meta name="description" content="Заказать доработку 1С, интеграцию с сайтами и CRM, написание отчётов и обработок. Профессиональные услуги 1С-программиста. Автоматизация бизнес-процессов на платформе 1С:Предприятие.">
+    <meta name="keywords" content="услуги 1с программиста, доработка 1с, 1с интеграция, 1с отчёты, 1с обработки, 1с битрикс, 1с программист, заказать 1с, Николай">
 
+    <link rel="icon" href="1c-logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="1c-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Николай",
-        "jobTitle": "Программист-разработчик",
-        "description": "Разработка Telegram-ботов, скриптов автоматизации, интеграция с API, создание сайтов-визиток.",
+        "jobTitle": "1С-программист",
+        "description": "Доработка 1С, интеграция с сайтами и CRM, написание отчётов и обработок, автоматизация бизнес-процессов.",
         "url": "https://nikolaymax.github.io/",
         "sameAs": [
             "https://t.me/nmahmutov"
@@ -27,97 +29,98 @@
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg: #0a0a0a;
-            --bg-section: #0d1117;
-            --bg-card: rgba(255,255,255,0.03);
-            --bg-card-hover: rgba(255,255,255,0.06);
-            --green: #00ff41;
-            --green-dim: rgba(0,255,65,0.15);
-            --blue: #58a6ff;
-            --white: #f0f6fc;
-            --text: #c9d1d9;
-            --text-secondary: #8b949e;
-            --text-muted: #484f58;
-            --border: rgba(255,255,255,0.06);
-            --font-mono: 'JetBrains Mono', monospace;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --header-h: 64px;
-            --max-w: 1100px;
-            --radius: 12px;
-        }
-
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-sans);
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1A1A1A;
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        ::selection { background: var(--green); color: var(--bg); }
-
         a { text-decoration: none; color: inherit; }
+        ::selection { background: #E31E24; color: #fff; }
+
+        :root {
+            --yellow: #FFCC00;
+            --yellow-light: #FFF8E1;
+            --yellow-bg: #FFFAF0;
+            --red: #E31E24;
+            --red-dim: rgba(227,30,36,0.08);
+            --red-glow: rgba(227,30,36,0.2);
+            --text: #1A1A1A;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --border: #F0E8D0;
+            --header-h: 72px;
+            --max-w: 1100px;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.06);
+            --shadow-hover: 0 12px 48px rgba(0,0,0,0.1);
+            --font-mono: 'JetBrains Mono', monospace;
+            --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
 
         /* Header */
         .header {
             position: fixed;
             top: 0; left: 0; right: 0;
             height: var(--header-h);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            background: rgba(10,10,10,0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
             z-index: 1000;
+            transition: background 0.5s, box-shadow 0.5s, backdrop-filter 0.5s;
+        }
+
+        .header.scrolled {
+            background: var(--yellow);
+            box-shadow: 0 2px 32px rgba(0,0,0,0.08);
         }
 
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
             max-width: var(--max-w);
             margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
         }
 
         .logo {
             font-family: var(--font-mono);
             font-weight: 700;
-            font-size: 20px;
-            color: var(--white);
+            font-size: 22px;
+            color: var(--text);
             letter-spacing: -0.5px;
+            transition: color 0.3s;
         }
 
-        .logo span { color: var(--green); }
+        .logo span { color: var(--red); }
 
         .nav { display: flex; align-items: center; gap: 32px; }
 
         .nav a {
-            font-family: var(--font-mono);
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 500;
             color: var(--text-secondary);
-            transition: color 0.25s;
             position: relative;
+            transition: color 0.3s;
+            padding: 4px 0;
         }
 
         .nav a::after {
             content: '';
             position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 1.5px;
-            background: var(--green);
-            transition: width 0.25s;
+            bottom: -2px; left: 0;
+            width: 0; height: 2px;
+            background: var(--red);
+            transition: width 0.3s;
+            border-radius: 2px;
         }
 
-        .nav a:hover { color: var(--white); }
+        .nav a:hover { color: var(--text); }
         .nav a:hover::after { width: 100%; }
 
         .burger {
@@ -133,7 +136,7 @@
         .burger span {
             display: block;
             width: 24px; height: 2px;
-            background: var(--white);
+            background: var(--text);
             border-radius: 2px;
             transition: transform 0.3s, opacity 0.3s;
         }
@@ -149,105 +152,200 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 24px 80px;
+            padding: 120px 24px 80px;
             overflow: hidden;
+            background: linear-gradient(135deg, #FFFDF5 0%, #FFFFFF 50%, #FFF8E1 100%);
         }
 
-        #matrix-canvas {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        .hero-grid {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 1;
-            background-image:
-                linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(255,204,0,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(227,30,36,0.05) 0%, transparent 50%);
+            animation: heroGradient 12s ease-in-out infinite alternate;
             pointer-events: none;
         }
 
-        .hero-overlay {
+        @keyframes heroGradient {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(2%, 2%) rotate(2deg); }
+        }
+
+        .hero-logo {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 40%;
-            background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
-            z-index: 1;
+            right: 8%; top: 18%;
+            width: 120px; height: 120px;
+            animation: floatLogo 8s ease-in-out infinite;
             pointer-events: none;
+            opacity: 0.12;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-24px) rotate(4deg); }
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .hero-blob--1 {
+            width: 400px; height: 400px;
+            background: rgba(255,204,0,0.12);
+            top: -10%; left: -10%;
+            animation: blobFloat 16s ease-in-out infinite alternate;
+        }
+
+        .hero-blob--2 {
+            width: 300px; height: 300px;
+            background: rgba(227,30,36,0.06);
+            bottom: -5%; right: -5%;
+            animation: blobFloat 20s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes blobFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, 40px) scale(1.15); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            max-width: 720px;
+            max-width: 800px;
             opacity: 0;
-            transform: translateY(24px);
-            animation: fadeUp 0.8s ease forwards;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
         }
 
         .hero-badge {
-            font-family: var(--font-mono);
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .hero-badge::before { content: '// '; }
-
-        .hero h1 {
-            font-family: var(--font-mono);
-            font-size: clamp(28px, 5.5vw, 56px);
-            font-weight: 700;
-            line-height: 1.15;
-            color: var(--white);
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 .highlight { color: var(--green); }
-
-        .hero p {
-            font-size: clamp(15px, 2vw, 18px);
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto 36px;
-        }
-
-        .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             font-family: var(--font-mono);
-            font-size: 14px;
-            font-weight: 500;
-            padding: 14px 36px;
-            border-radius: 8px;
+            font-size: 13px;
+            color: var(--red);
+            padding: 6px 18px;
+            border: 1px solid rgba(227,30,36,0.15);
+            border-radius: 100px;
+            background: rgba(227,30,36,0.04);
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge svg {
+            width: 16px; height: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--red), #FF6B6B, var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .highlight {
+            color: var(--red);
+        }
+
+        .hero p {
+            font-size: clamp(16px, 1.8vw, 19px);
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 52px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-mono);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .hero-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: var(--radius-sm);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition);
             border: none;
         }
 
         .btn-primary {
-            background: var(--green);
-            color: var(--bg);
-            box-shadow: 0 0 20px var(--green-dim);
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--red-glow);
         }
 
         .btn-primary:hover {
-            background: #00e63a;
-            box-shadow: 0 0 40px rgba(0,255,65,0.3);
+            background: #CC1A1F;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(227,30,36,0.35);
+        }
+
+        .btn-secondary {
+            background: rgba(255,204,0,0.15);
+            color: var(--text);
+            border: 1px solid rgba(255,204,0,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,204,0,0.25);
             transform: translateY(-2px);
         }
 
-        /* Sections common */
+        /* Sections */
         .section {
             padding: 100px 24px;
         }
@@ -257,23 +355,32 @@
             margin: 0 auto;
         }
 
+        .section-alt {
+            background: var(--yellow-light);
+        }
+
         .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-family: var(--font-mono);
-            font-size: 13px;
-            color: var(--green);
+            font-size: 12px;
+            color: var(--red);
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 8px;
+            padding: 4px 14px;
+            border: 1px solid rgba(227,30,36,0.12);
+            border-radius: 100px;
+            background: rgba(227,30,36,0.04);
         }
 
-        .section-label::before { content: '// '; }
-
         .section h2 {
-            font-family: var(--font-mono);
-            font-size: clamp(26px, 4vw, 38px);
+            font-size: clamp(28px, 3.5vw, 40px);
             font-weight: 700;
-            color: var(--white);
-            margin-bottom: 16px;
+            color: var(--text);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
         .section-sub {
@@ -281,28 +388,27 @@
             font-size: 16px;
             max-width: 560px;
             margin-bottom: 56px;
+            line-height: 1.7;
         }
 
         /* Services */
-        #services { background: var(--bg-section); }
-
         .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
         .service-card {
-            flex: 1 1 240px;
-            max-width: 340px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,204,0,0.2);
             border-radius: var(--radius);
-            padding: 32px 28px;
-            transition: all 0.3s ease;
+            padding: 36px 32px;
+            transition: all var(--transition);
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(24px);
+            box-shadow: var(--shadow);
         }
 
         .service-card.visible {
@@ -311,56 +417,66 @@
         }
 
         .service-card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(0,255,65,0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(227,30,36,0.2);
+            background: rgba(255,255,255,0.9);
         }
 
         .service-card .icon {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            color: var(--green);
-            margin-bottom: 16px;
-            display: inline-block;
-            padding: 4px 10px;
-            border: 1px solid rgba(0,255,65,0.2);
-            border-radius: 4px;
-            background: rgba(0,255,65,0.05);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: var(--yellow);
+            margin-bottom: 20px;
+        }
+
+        .service-card .icon svg {
+            width: 22px; height: 22px;
         }
 
         .service-card h3 {
-            font-family: var(--font-mono);
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 600;
-            color: var(--white);
+            color: var(--text);
             margin-bottom: 10px;
         }
 
         .service-card p {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         /* Portfolio */
         .portfolio-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
         }
 
         .portfolio-card {
-            flex: 1 1 300px;
-            max-width: 400px;
-            background: var(--bg-card);
+            background: #fff;
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 32px 28px;
-            transition: all 0.3s ease;
+            transition: all var(--transition);
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(24px);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--yellow);
+            transition: background 0.3s;
         }
 
         .portfolio-card.visible {
@@ -369,36 +485,38 @@
         }
 
         .portfolio-card:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(88,166,255,0.2);
             transform: translateY(-4px);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(227,30,36,0.15);
+        }
+
+        .portfolio-card:hover::before {
+            background: var(--red);
         }
 
         .portfolio-card .tag {
             font-family: var(--font-mono);
             font-size: 11px;
-            color: var(--blue);
-            margin-bottom: 14px;
+            color: var(--red);
             display: inline-block;
-            padding: 3px 10px;
-            border: 1px solid rgba(88,166,255,0.2);
-            border-radius: 4px;
-            background: rgba(88,166,255,0.05);
+            padding: 4px 12px;
+            border: 1px solid rgba(227,30,36,0.15);
+            border-radius: 100px;
+            background: rgba(227,30,36,0.04);
+            margin-bottom: 16px;
         }
 
         .portfolio-card h3 {
-            font-family: var(--font-mono);
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
-            color: var(--white);
+            color: var(--text);
             margin-bottom: 8px;
         }
 
         .portfolio-card p {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         .portfolio-card .tech {
@@ -412,17 +530,15 @@
             font-family: var(--font-mono);
             font-size: 11px;
             color: var(--text-muted);
-            padding: 2px 8px;
-            border: 1px solid var(--border);
-            border-radius: 3px;
+            padding: 3px 10px;
+            background: var(--yellow-light);
+            border-radius: 100px;
         }
 
         /* Contact */
-        #contacts { background: var(--bg-section); }
-
         .contact-content {
             text-align: center;
-            max-width: 560px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -439,63 +555,51 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            min-width: 220px;
+            min-width: 240px;
             padding: 18px 36px;
-            font-family: var(--font-mono);
             font-size: 15px;
             font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition);
             border: 1px solid transparent;
         }
 
         .btn-contact:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
 
         .btn-telegram {
-            background: var(--green);
-            color: var(--bg);
-            box-shadow: 0 0 20px var(--green-dim);
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--red-glow);
         }
 
         .btn-telegram:hover {
-            background: #00e63a;
-            box-shadow: 0 0 40px rgba(0,255,65,0.3);
+            background: #CC1A1F;
+            box-shadow: 0 8px 32px rgba(227,30,36,0.35);
         }
 
         .btn-max {
-            background: transparent;
-            color: var(--white);
-            border-color: var(--blue);
-            box-shadow: 0 0 20px rgba(88,166,255,0.1);
+            background: rgba(255,204,0,0.15);
+            color: var(--text);
+            border-color: rgba(255,204,0,0.3);
         }
 
         .btn-max:hover {
-            background: rgba(88,166,255,0.1);
-            border-color: var(--blue);
-            box-shadow: 0 0 40px rgba(88,166,255,0.2);
+            background: rgba(255,204,0,0.25);
+            border-color: rgba(255,204,0,0.5);
         }
 
-        .contact-email {
-            margin-top: 32px;
+        .btn-contact svg {
+            width: 20px; height: 20px;
         }
-
-        .contact-email a {
-            font-family: var(--font-mono);
-            font-size: 14px;
-            color: var(--text-secondary);
-            transition: color 0.25s;
-        }
-
-        .contact-email a:hover { color: var(--white); }
 
         /* Footer */
         .footer {
-            padding: 32px 24px;
+            padding: 40px 24px;
             text-align: center;
             border-top: 1px solid var(--border);
+            background: var(--yellow-bg);
         }
 
         .footer p {
@@ -504,52 +608,54 @@
             color: var(--text-muted);
         }
 
-        /* Animation keyframes */
+        /* Animations */
         @keyframes fadeUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mobile nav overlay */
+        /* Mobile nav */
         .nav-overlay {
             display: none;
             position: fixed;
             top: var(--header-h); left: 0; right: 0; bottom: 0;
-            background: rgba(10,10,10,0.98);
+            background: rgba(255,255,255,0.98);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             z-index: 999;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 28px;
+            gap: 32px;
         }
 
         .nav-overlay.open { display: flex; }
 
         .nav-overlay a {
-            font-family: var(--font-mono);
-            font-size: 22px;
+            font-size: 24px;
+            font-weight: 600;
             color: var(--text-secondary);
             transition: color 0.25s;
         }
 
-        .nav-overlay a:hover { color: var(--green); }
+        .nav-overlay a:hover { color: var(--red); }
 
         @media (max-width: 768px) {
             .nav { display: none; }
             .burger { display: flex; }
 
-            .hero { padding: 80px 20px 60px; }
+            .hero { padding: 100px 20px 60px; }
+
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .hero-stat-value { font-size: 26px; }
+
             .section { padding: 72px 20px; }
 
             .services-grid,
-            .portfolio-grid { flex-direction: column; align-items: center; }
-
-            .service-card,
-            .portfolio-card { max-width: 100%; }
+            .portfolio-grid { grid-template-columns: 1fr; }
 
             .btn-contact { min-width: 0; width: 100%; max-width: 320px; }
             .contact-buttons { flex-direction: column; align-items: center; }
+
+            .hero-logo { width: 80px; height: 80px; right: 5%; }
         }
 
         @media (min-width: 769px) {
@@ -574,9 +680,9 @@
 <!-- /Yandex.Metrika counter -->
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="header-inner">
-            <a href="#" class="logo">Николай<span>.</span></a>
+            <a href="#" class="logo">1С <span>Программист</span></a>
             <nav class="nav">
                 <a href="#services">Услуги</a>
                 <a href="#portfolio">Портфолио</a>
@@ -599,81 +705,93 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-        <canvas id="matrix-canvas"></canvas>
-        <div class="hero-grid"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-blob hero-blob--1"></div>
+        <div class="hero-blob hero-blob--2"></div>
+
+        <img src="1c-logo.png" alt="1С" class="hero-logo">
 
         <div class="hero-content">
-            <div class="hero-badge">Николай</div>
-            <h1>Разработка ботов <span class="highlight">под ключ</span></h1>
+            <div class="hero-badge">
+                <img src="1c-logo.png" alt="1С" style="width:16px;height:16px;border-radius:50%;">
+                1С-программист
+            </div>
+
+            <h1>
+                Разработка и сопровождение <span class="gradient-text">1С</span><br>
+                <span class="highlight">под ключ</span>
+            </h1>
+
             <p>
-                Проектирую и пишу код для ботов под Telegram и Max, 
-                скриптов автоматизации и веб-приложений. От идеи до деплоя 
-                — с чистым кодом и документацией.
+                Дорабатываю конфигурации, настраиваю обмен данными с сайтами и CRM,<br>
+                пишу отчёты и обработки. Автоматизирую бизнес-процессы на 1С:Предприятие.
             </p>
-            <a href="#contacts" class="btn btn-primary">Обсудить проект</a>
+
+            <div class="hero-actions">
+                <a href="#contacts" class="btn btn-primary">
+                    Обсудить проект
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#portfolio" class="btn btn-secondary">
+                    Смотреть работы
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">5+</div>
+                    <div class="hero-stat-label">лет опыта</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">20+</div>
+                    <div class="hero-stat-label">проектов</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">100%</div>
+                    <div class="hero-stat-label">довольных клиентов</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services -->
-    <section class="section" id="services">
+    <section class="section section-alt" id="services">
         <div class="section-inner">
             <div class="section-label">Услуги</div>
             <h2>Что я делаю</h2>
             <p class="section-sub">
-                Помогаю бизнесу и частным заказчикам автоматизировать процессы 
-                и создавать цифровые продукты.
+                Автоматизирую бизнес-процессы на платформе 1С:Предприятие.
+                Работаю с типовыми и нетиповыми конфигурациями.
             </p>
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="icon">[bot]</div>
-                    <h3>Боты для Telegram</h3>
-                    <p>
-                        Разработка ботов любой сложности: от простых 
-                        уведомлений до полноценных магазинов с оплатой, 
-                        админ-панелью и аналитикой.
-                    </p>
+                    <div class="icon"><img src="1c-logo.png" alt="1С" style="width:24px;height:24px;border-radius:50%;"></div>
+                    <h3>Доработка конфигураций 1С</h3>
+                    <p>Вношу изменения в типовые и нетиповые конфигурации: новые документы, справочники, регистры, печатные формы, обработки. Адаптация 1С под бизнес-процессы.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon">[auto]</div>
-                    <h3>Скрипты автоматизации</h3>
-                    <p>
-                        Парсинг данных, автоматическая обработка файлов, 
-                        рассылки, работа с таблицами — избавляю от рутины 
-                        с помощью кода.
-                    </p>
+                    <div class="icon"><img src="1c-logo.png" alt="1С" style="width:24px;height:24px;border-radius:50%;"></div>
+                    <h3>Обмен данными и интеграция</h3>
+                    <p>Настраиваю обмен 1С с сайтами (Битрикс, WooCommerce), маркетплейсами (Ozon, Wildberries), CRM, банками, телефонией. Загрузка и выгрузка любых данных.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon">[api]</div>
-                    <h3>Интеграция с API</h3>
-                    <p>
-                        Подключение сторонних сервисов: платежные системы, 
-                        CRM, мессенджеры, соцсети. Настраиваю обмен данными 
-                        между сервисами.
-                    </p>
+                    <div class="icon"><img src="1c-logo.png" alt="1С" style="width:24px;height:24px;border-radius:50%;"></div>
+                    <h3>Отчёты и обработки</h3>
+                    <p>Разрабатываю сложные отчёты на СКД, внешние обработки, загрузку данных из Excel и других источников. Автоматизация рутинных операций в 1С.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon">[web]</div>
-                    <h3>Веб-разработка</h3>
-                    <p>
-                        Создание сайтов-визиток, лендингов и небольших 
-                        веб-приложений. Адаптивная верстка, чистая 
-                        архитектура, быстрый запуск.
-                    </p>
+                    <div class="icon"><img src="1c-logo.png" alt="1С" style="width:24px;height:24px;border-radius:50%;"></div>
+                    <h3>Перенос данных и миграция</h3>
+                    <p>Переношу данные из legacy-систем в 1С, помогаю перейти с одной конфигурации на другую. Выверка остатков, сверка оборотов, контроль качества данных.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon">[bot+]</div>
-                    <h3>Боты для Max</h3>
-                    <p>
-                        Разработка ботов и автопостеров для мессенджера Max: 
-                        рассылки, обработка заказов, интеграция с CRM, 
-                        модерация чатов и аналитика.
-                    </p>
+                    <div class="icon"><img src="1c-logo.png" alt="1С" style="width:24px;height:24px;border-radius:50%;"></div>
+                    <h3>Сопровождение и консультации</h3>
+                    <p>Регулярное сопровождение 1С, исправление ошибок, обновление конфигураций, консультации пользователей, оптимизация запросов и производительности.</p>
                 </div>
             </div>
         </div>
@@ -685,86 +803,49 @@
             <div class="section-label">Портфолио</div>
             <h2>Примеры работ</h2>
             <p class="section-sub">
-                Каждый проект — это решённая задача. Вот несколько 
-                последних кейсов.
+                Реальные проекты по автоматизации и интеграции 1С. Каждый — решённая бизнес-задача.
             </p>
 
             <div class="portfolio-grid">
                 <div class="portfolio-card">
-                    <div class="tag">Telegram Bot</div>
-                    <h3>BotKeeper</h3>
-                    <p>
-                        Telegram-бот для управления подписками: автоматическая 
-                        оплата через ЮKassa, статистика, уведомления, 
-                        админ-панель с правами доступа.
-                    </p>
-                    <div class="tech">
-                        <span>Python</span>
-                        <span>aiogram</span>
-                        <span>PostgreSQL</span>
-                        <span>Docker</span>
-                    </div>
+                    <div class="tag">Интеграция</div>
+                    <h3>1С + Интернет-магазин</h3>
+                    <p>Настроил обмен данными между 1С:Управление торговлей и интернет-магазином на Битрикс. Автоматическая выгрузка товаров, остатков, цен и заказов в обе стороны.</p>
+                    <div class="tech"><span>1С:УТ</span><span>Битрикс</span><span>HTTP-сервисы</span><span>XML</span></div>
                 </div>
 
                 <div class="portfolio-card">
-                    <div class="tag">Parsing / Automation</div>
-                    <h3>ParseFlow</h3>
-                    <p>
-                        Парсер данных с динамических сайтов (Wildberries, 
-                        Ozon). Автоматический сбор цен, остатков, отзывов 
-                        с выгрузкой в Google Sheets и Telegram-уведомлениями.
-                    </p>
-                    <div class="tech">
-                        <span>Python</span>
-                        <span>Playwright</span>
-                        <span>Google API</span>
-                        <span>Redis</span>
-                    </div>
+                    <div class="tag">Отчётность</div>
+                    <h3>Управленческая отчётность</h3>
+                    <p>Разработал комплекс отчётов на СКД для руководства: прибыльность по направлениям, анализ продаж, дебиторка, план-факт. С возможностью расшифровки до первички.</p>
+                    <div class="tech"><span>1С:БП</span><span>СКД</span><span>Компоновка</span><span>OLAP</span></div>
                 </div>
 
                 <div class="portfolio-card">
-                    <div class="tag">Web App</div>
-                    <h3>TaskBoard</h3>
-                    <p>
-                        Минималистичное веб-приложение для управления 
-                        задачами с Drag&Drop, фильтрацией, колонками и 
-                        REST API для интеграции с внешними сервисами.
-                    </p>
-                    <div class="tech">
-                        <span>React</span>
-                        <span>TypeScript</span>
-                        <span>FastAPI</span>
-                        <span>SQLite</span>
-                    </div>
+                    <div class="tag">Обмен</div>
+                    <h3>Интеграция с маркетплейсами</h3>
+                    <p>Реализовал выгрузку товаров и синхронизацию остатков с Ozon и Wildberries напрямую из 1С. Автоматическая загрузка заказов и сверка поступлений.</p>
+                    <div class="tech"><span>1С:УНФ</span><span>Ozon API</span><span>Wildberries API</span><span>JSON</span></div>
                 </div>
 
                 <div class="portfolio-card">
-                    <div class="tag">Max Bot</div>
-                    <h3>MaxBot Assistant</h3>
-                    <p>
-                        Бот для Max с автоматическим ответом на заявки, 
-                        подключением операторов, базой знаний и 
-                        статистикой диалогов в реальном времени.
-                    </p>
-                    <div class="tech">
-                        <span>Python</span>
-                        <span>Max API</span>
-                        <span>PostgreSQL</span>
-                        <span>Redis</span>
-                    </div>
+                    <div class="tag">Миграция</div>
+                    <h3>Переход с 1С 7.7 на 8.3</h3>
+                    <p>Выполнил перенос данных с конфигурации 1С 7.7 на 1С:Бухгалтерию 8.3. С выверкой остатков, оборотов и сверкой с оригиналом.</p>
+                    <div class="tech"><span>1С 7.7</span><span>1С:БП 3.0</span><span>Внешняя обработка</span><span>V83.COMConnector</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contacts -->
-    <section class="section" id="contacts">
+    <section class="section section-alt" id="contacts">
         <div class="section-inner">
             <div class="contact-content">
                 <div class="section-label">Контакты</div>
                 <h2>Свяжитесь со мной</h2>
                 <p class="section-sub" style="margin-left: auto; margin-right: auto;">
-                    Открыт к новым проектам и интересным задачам. 
+                    Открыт к новым проектам и интересным задачам.
                     Пишите — обсудим детали.
                 </p>
 
@@ -774,11 +855,10 @@
                         Написать в Telegram
                     </a>
                     <a href="https://max.ru/u/f9LHodD0cOIdiRoybHykk3Gi_8z9Oo_62RxFk-WtyRXM4GZ720Jmu_6IlFc" target="_blank" rel="noopener noreferrer" class="btn-contact btn-max">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 9H3"/><path d="M9 21V9"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 43 43" fill="none"><g filter="url(#a)"><g clip-path="url(#b)" data-figma-skip-parse="true"><foreignObject width="2764.31" height="2764.31" x="-1382.15" y="-1382.15" transform="matrix(-.0126698 .018634 -.017121 -.0117992 20.42 23.37)"><div style="background:conic-gradient(from 90deg,#06affb 0deg,#00b8ff 5.4deg,#001cf1 109.8deg,#8900ac 252deg,#06affb 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g><path d="M22.39 41.89c-3.93 0-5.75-.58-8.9-2.9-2.02 2.61-8.34 4.63-8.62 1.17 0-2.6-.58-4.8-1.22-7.2C2.87 30 2 26.72 2 21.94 2 10.56 11.28 2 22.28 2c11 0 19.63 8.98 19.63 20.06 0 11.07-8.9 19.83-19.52 19.83Zm.2-30.02c-5.22-.27-9.3 3.37-10.2 9.08-.74 4.72.58 10.48 1.7 10.77.54.13 1.9-.98 2.74-1.82 1.39.9 2.97 1.6 4.73 1.7a9.96 9.96 0 0 0 10.4-9.34 10 10 0 0 0-9.37-10.39Z" clip-rule="evenodd"></path></g><ellipse cx="21.95" cy="22.09" fill="url(#c)" rx="19.05" ry="19.18"></ellipse><ellipse cx="21.78" cy="21.4" fill="url(#d)" rx="17.91" ry="18.03"></ellipse><ellipse cx="14" cy="14.1" fill="url(#e)" rx="14" ry="14.1" transform="matrix(-.998415 -.0562829 .0555313 -.998457 35.55 36.84)"></ellipse><ellipse cx="1.14" cy="6.87" fill="#000" fill-opacity=".38" rx="1.14" ry="6.87" transform="matrix(.988028 -.154275 .152257 .988341 3.25 21.78)"></ellipse><path stroke="#fff" stroke-opacity=".3" stroke-width=".36" d="M21.47 7.36a2.43 2.43 0 0 1 2.8 0c.6.43 1.4.56 2.11.33.98-.3 2.06.05 2.66.87.45.6 1.17.97 1.92.97 1.01.01 1.93.68 2.26 1.65.24.7.8 1.28 1.52 1.51a2.43 2.43 0 0 1 1.64 2.27c0 .74.37 1.46.97 1.9.82.62 1.17 1.7.87 2.67-.23.71-.1 1.5.33 2.12.6.83.6 1.96 0 2.8-.43.6-.56 1.4-.33 2.11.3.97-.05 2.06-.87 2.66-.6.45-.96 1.17-.97 1.91a2.43 2.43 0 0 1-1.64 2.27c-.71.24-1.28.8-1.52 1.51a2.43 2.43 0 0 1-2.26 1.65c-.75 0-1.47.37-1.92.97a2.43 2.43 0 0 1-2.66.87 2.43 2.43 0 0 0-2.12.33c-.83.6-1.96.6-2.8 0a2.43 2.43 0 0 0-2.11-.33c-.97.3-2.05-.05-2.66-.87a2.43 2.43 0 0 0-1.91-.97 2.43 2.43 0 0 1-2.27-1.65c-.23-.7-.8-1.27-1.51-1.51a2.43 2.43 0 0 1-1.65-2.27c0-.74-.37-1.46-.97-1.9a2.43 2.43 0 0 1-.86-2.67c.22-.71.1-1.5-.34-2.12a2.43 2.43 0 0 1 0-2.8c.43-.6.56-1.4.34-2.11-.3-.97.04-2.05.86-2.66.6-.45.97-1.17.97-1.91A2.43 2.43 0 0 1 11 12.69c.7-.23 1.28-.8 1.51-1.51a2.43 2.43 0 0 1 2.27-1.65c.74 0 1.46-.37 1.9-.97a2.43 2.43 0 0 1 2.67-.87c.71.23 1.5.1 2.12-.33Z"></path><defs><filter id="a" width="39.91" height="40" x="2" y="2" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix><feOffset></feOffset><feGaussianBlur stdDeviation="2.25"></feGaussianBlur><feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"></feComposite><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"></feColorMatrix><feBlend in2="shape" result="effect1_innerShadow_338_8816"></feBlend></filter><linearGradient id="c" x1="29.96" x2="37.74" y1="33.06" y2="48.3" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity="0"></stop><stop offset="1" stop-color="#fff" stop-opacity=".37"></stop></linearGradient><linearGradient id="d" x1="11.72" x2="14.13" y1="6" y2="9.55" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></linearGradient><linearGradient id="e" x1="5.34" x2="8.27" y1="1.47" y2="5.69" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".69"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></linearGradient><clipPath id="b"><path fill-rule="evenodd" d="M22.39 41.89c-3.93 0-5.75-.58-8.9-2.9-2.02 2.61-8.34 4.63-8.62 1.17 0-2.6-.58-4.8-1.22-7.2C2.87 30 2 26.72 2 21.94 2 10.56 11.28 2 22.28 2c11 0 19.63 8.98 19.63 20.06 0 11.07-8.9 19.83-19.52 19.83Zm.2-30.02c-5.22-.27-9.3 3.37-10.2 9.08-.74 4.72.58 10.48 1.7 10.77.54.13 1.9-.98 2.74-1.82 1.39.9 2.97 1.6 4.73 1.7a9.96 9.96 0 0 0 10.4-9.34 10 10 0 0 0-9.37-10.39Z" clip-rule="evenodd"></path></clipPath></defs></svg>
                         Написать в Max
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
@@ -789,80 +869,47 @@
     </footer>
 
     <script>
-        // ─── Matrix Rain Canvas ─────────────────────────────
+        // ─── Scroll header ────────────────────────────
         (function() {
-            const canvas = document.getElementById('matrix-canvas');
-            const ctx = canvas.getContext('2d');
+            const header = document.getElementById('header');
+            let ticking = false;
 
-            let W, H;
-            const fontSize = 14;
-            let columns;
-            let drops = [];
-            const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|&~';
-
-            function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                W = canvas.width = rect.width;
-                H = canvas.height = rect.height;
-                columns = Math.floor(W / fontSize);
-                drops = Array(columns).fill(1);
+            function updateHeader() {
+                header.classList.toggle('scrolled', window.scrollY > 60);
+                ticking = false;
             }
 
-            resize();
-            window.addEventListener('resize', resize);
-
-            function draw() {
-                ctx.fillStyle = 'rgba(10, 10, 10, 0.08)';
-                ctx.fillRect(0, 0, W, H);
-
-                ctx.font = fontSize + 'px "JetBrains Mono", monospace';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const char = chars[Math.floor(Math.random() * chars.length)];
-                    const x = i * fontSize;
-                    const y = drops[i] * fontSize;
-
-                    const brightness = Math.random();
-                    if (brightness > 0.98) {
-                        ctx.fillStyle = '#f0f6fc';
-                    } else {
-                        const alpha = 0.3 + (1 - drops[i] / H) * 0.7;
-                        ctx.fillStyle = 'rgba(0,255,65,' + alpha.toFixed(2) + ')';
-                    }
-
-                    ctx.fillText(char, x, y);
-
-                    if (y > H && Math.random() > 0.985) {
-                        drops[i] = 0;
-                    }
-                    drops[i] += 0.3 + Math.random() * 0.2;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateHeader);
+                    ticking = true;
                 }
+            });
 
-                requestAnimationFrame(draw);
-            }
-
-            draw();
+            if (window.scrollY > 60) header.classList.add('scrolled');
         })();
 
-        // ─── Intersection Observer ──────────────────────────
+        // ─── Intersection Observer with stagger ─────
         (function() {
             const cards = document.querySelectorAll('.service-card, .portfolio-card');
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        const index = Array.from(cards).indexOf(entry.target);
+                        const delay = index * 80;
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, delay);
                         observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.15
-            });
+            }, { threshold: 0.1 });
 
             cards.forEach((el) => observer.observe(el));
         })();
 
-        // ─── Smooth scroll & Mobile nav ────────────────────
+        // ─── Smooth scroll & Mobile nav ──────────────
         (function() {
             const burger = document.getElementById('burger');
             const overlay = document.getElementById('navOverlay');
@@ -883,7 +930,6 @@
                             target.scrollIntoView({ behavior: 'smooth' });
                         }
                     }
-
                     burger.classList.remove('active');
                     overlay.classList.remove('open');
                 });
