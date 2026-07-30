@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Николай — Услуги программиста | Разработка ботов, автоматизация, веб-разработка</title>
+    <meta name="description" content="Заказать разработку Telegram-ботов, скриптов автоматизации и веб-сайтов. Профессиональные услуги программиста-разработчика. API-интеграции, автоматизация бизнес-процессов.">
+    <meta name="keywords" content="разработка ботов, услуги программиста, заказать бота, telegram бот, автоматизация, веб-разработка, программист на заказ, Николай">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Николай",
+        "jobTitle": "Программист-разработчик",
+        "description": "Разработка Telegram-ботов, скриптов автоматизации, интеграция с API, создание сайтов-визиток.",
+        "url": "https://nikolaymax.github.io/",
+        "sameAs": [
+            "https://t.me/nmahmutov"
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-section: #0d1117;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --green: #00ff41;
+            --green-dim: rgba(0,255,65,0.15);
+            --blue: #58a6ff;
+            --white: #f0f6fc;
+            --text: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-muted: #484f58;
+            --border: rgba(255,255,255,0.06);
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --header-h: 64px;
+            --max-w: 1100px;
+            --radius: 12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--green); color: var(--bg); }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--green); }
+
+        .nav { display: flex; align-items: center; gap: 32px; }
+
+        .nav a {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
+            transition: color 0.25s;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1.5px;
+            background: var(--green);
+            transition: width 0.25s;
+        }
+
+        .nav a:hover { color: var(--white); }
+        .nav a:hover::after { width: 100%; }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .burger span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .burger.active span:nth-child(2) { opacity: 0; }
+        .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 24px 80px;
+            overflow: hidden;
+        }
+
+        #matrix-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            background-image:
+                linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 720px;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-badge {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .hero-badge::before { content: '// '; }
+
+        .hero h1 {
+            font-family: var(--font-mono);
+            font-size: clamp(28px, 5.5vw, 56px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight { color: var(--green); }
+
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 14px 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--green-dim);
+        }
+
+        .btn-primary:hover {
+            background: #00e63a;
+            box-shadow: 0 0 40px rgba(0,255,65,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Sections common */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-label::before { content: '// '; }
+
+        .section h2 {
+            font-family: var(--font-mono);
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 560px;
+            margin-bottom: 56px;
+        }
+
+        /* Services */
+        #services { background: var(--bg-section); }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .service-card {
+            flex: 1 1 240px;
+            max-width: 340px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(0,255,65,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+
+        .service-card .icon {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--green);
+            margin-bottom: 16px;
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1px solid rgba(0,255,65,0.2);
+            border-radius: 4px;
+            background: rgba(0,255,65,0.05);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-mono);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .portfolio-card {
+            flex: 1 1 300px;
+            max-width: 400px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .portfolio-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(88,166,255,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+
+        .portfolio-card .tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--blue);
+            margin-bottom: 14px;
+            display: inline-block;
+            padding: 3px 10px;
+            border: 1px solid rgba(88,166,255,0.2);
+            border-radius: 4px;
+            background: rgba(88,166,255,0.05);
+        }
+
+        .portfolio-card h3 {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .portfolio-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .portfolio-card .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 16px;
+        }
+
+        .portfolio-card .tech span {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+        }
+
+        /* Contact */
+        #contacts { background: var(--bg-section); }
+
+        .contact-content {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 36px;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 220px;
+            padding: 18px 36px;
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-telegram {
+            background: var(--green);
+            color: var(--bg);
+            box-shadow: 0 0 20px var(--green-dim);
+        }
+
+        .btn-telegram:hover {
+            background: #00e63a;
+            box-shadow: 0 0 40px rgba(0,255,65,0.3);
+        }
+
+        .btn-max {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--blue);
+            box-shadow: 0 0 20px rgba(88,166,255,0.1);
+        }
+
+        .btn-max:hover {
+            background: rgba(88,166,255,0.1);
+            border-color: var(--blue);
+            box-shadow: 0 0 40px rgba(88,166,255,0.2);
+        }
+
+        .contact-email {
+            margin-top: 32px;
+        }
+
+        .contact-email a {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: color 0.25s;
+        }
+
+        .contact-email a:hover { color: var(--white); }
+
+        /* Footer */
+        .footer {
+            padding: 32px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer p {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile nav overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--header-h); left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,10,0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .nav-overlay.open { display: flex; }
+
+        .nav-overlay a {
+            font-family: var(--font-mono);
+            font-size: 22px;
+            color: var(--text-secondary);
+            transition: color 0.25s;
+        }
+
+        .nav-overlay a:hover { color: var(--green); }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .burger { display: flex; }
+
+            .hero { padding: 80px 20px 60px; }
+            .section { padding: 72px 20px; }
+
+            .services-grid,
+            .portfolio-grid { flex-direction: column; align-items: center; }
+
+            .service-card,
+            .portfolio-card { max-width: 100%; }
+
+            .btn-contact { min-width: 0; width: 100%; max-width: 320px; }
+            .contact-buttons { flex-direction: column; align-items: center; }
+        }
+
+        @media (min-width: 769px) {
+            .nav-overlay { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111150663', 'ym');
+
+    ym(111150663, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111150663" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Николай<span>.</span></a>
+            <nav class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#portfolio">Портфолио</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile nav overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#portfolio" class="nav-link">Портфолио</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="hero-grid"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">Николай</div>
+            <h1>Разработка ботов <span class="highlight">под ключ</span></h1>
+            <p>
+                Проектирую и пишу код для ботов под Telegram и Max, 
+                скриптов автоматизации и веб-приложений. От идеи до деплоя 
+                — с чистым кодом и документацией.
+            </p>
+            <a href="#contacts" class="btn btn-primary">Обсудить проект</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="section-inner">
+            <div class="section-label">Услуги</div>
+            <h2>Что я делаю</h2>
+            <p class="section-sub">
+                Помогаю бизнесу и частным заказчикам автоматизировать процессы 
+                и создавать цифровые продукты.
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">[bot]</div>
+                    <h3>Боты для Telegram</h3>
+                    <p>
+                        Разработка ботов любой сложности: от простых 
+                        уведомлений до полноценных магазинов с оплатой, 
+                        админ-панелью и аналитикой.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">[auto]</div>
+                    <h3>Скрипты автоматизации</h3>
+                    <p>
+                        Парсинг данных, автоматическая обработка файлов, 
+                        рассылки, работа с таблицами — избавляю от рутины 
+                        с помощью кода.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">[api]</div>
+                    <h3>Интеграция с API</h3>
+                    <p>
+                        Подключение сторонних сервисов: платежные системы, 
+                        CRM, мессенджеры, соцсети. Настраиваю обмен данными 
+                        между сервисами.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">[web]</div>
+                    <h3>Веб-разработка</h3>
+                    <p>
+                        Создание сайтов-визиток, лендингов и небольших 
+                        веб-приложений. Адаптивная верстка, чистая 
+                        архитектура, быстрый запуск.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">[bot+]</div>
+                    <h3>Боты для Max</h3>
+                    <p>
+                        Разработка ботов и автопостеров для мессенджера Max: 
+                        рассылки, обработка заказов, интеграция с CRM, 
+                        модерация чатов и аналитика.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section" id="portfolio">
+        <div class="section-inner">
+            <div class="section-label">Портфолио</div>
+            <h2>Примеры работ</h2>
+            <p class="section-sub">
+                Каждый проект — это решённая задача. Вот несколько 
+                последних кейсов.
+            </p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="tag">Telegram Bot</div>
+                    <h3>BotKeeper</h3>
+                    <p>
+                        Telegram-бот для управления подписками: автоматическая 
+                        оплата через ЮKassa, статистика, уведомления, 
+                        админ-панель с правами доступа.
+                    </p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>aiogram</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="tag">Parsing / Automation</div>
+                    <h3>ParseFlow</h3>
+                    <p>
+                        Парсер данных с динамических сайтов (Wildberries, 
+                        Ozon). Автоматический сбор цен, остатков, отзывов 
+                        с выгрузкой в Google Sheets и Telegram-уведомлениями.
+                    </p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Playwright</span>
+                        <span>Google API</span>
+                        <span>Redis</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="tag">Web App</div>
+                    <h3>TaskBoard</h3>
+                    <p>
+                        Минималистичное веб-приложение для управления 
+                        задачами с Drag&Drop, фильтрацией, колонками и 
+                        REST API для интеграции с внешними сервисами.
+                    </p>
+                    <div class="tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>FastAPI</span>
+                        <span>SQLite</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="tag">Max Bot</div>
+                    <h3>MaxBot Assistant</h3>
+                    <p>
+                        Бот для Max с автоматическим ответом на заявки, 
+                        подключением операторов, базой знаний и 
+                        статистикой диалогов в реальном времени.
+                    </p>
+                    <div class="tech">
+                        <span>Python</span>
+                        <span>Max API</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="section" id="contacts">
+        <div class="section-inner">
+            <div class="contact-content">
+                <div class="section-label">Контакты</div>
+                <h2>Свяжитесь со мной</h2>
+                <p class="section-sub" style="margin-left: auto; margin-right: auto;">
+                    Открыт к новым проектам и интересным задачам. 
+                    Пишите — обсудим детали.
+                </p>
+
+                <div class="contact-buttons">
+                    <a href="https://t.me/nmahmutov" target="_blank" rel="noopener noreferrer" class="btn-contact btn-telegram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2L1 11l8 3 3 8 9.5-20z"/><path d="M12 14l4-4"/></svg>
+                        Написать в Telegram
+                    </a>
+                    <a href="https://max.ru/u/f9LHodD0cOIdiRoybHykk3Gi_8z9Oo_62RxFk-WtyRXM4GZ720Jmu_6IlFc" target="_blank" rel="noopener noreferrer" class="btn-contact btn-max">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 9H3"/><path d="M9 21V9"/></svg>
+                        Написать в Max
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Николай</p>
+    </footer>
+
+    <script>
+        // ─── Matrix Rain Canvas ─────────────────────────────
+        (function() {
+            const canvas = document.getElementById('matrix-canvas');
+            const ctx = canvas.getContext('2d');
+
+            let W, H;
+            const fontSize = 14;
+            let columns;
+            let drops = [];
+            const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|&~';
+
+            function resize() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                W = canvas.width = rect.width;
+                H = canvas.height = rect.height;
+                columns = Math.floor(W / fontSize);
+                drops = Array(columns).fill(1);
+            }
+
+            resize();
+            window.addEventListener('resize', resize);
+
+            function draw() {
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.08)';
+                ctx.fillRect(0, 0, W, H);
+
+                ctx.font = fontSize + 'px "JetBrains Mono", monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const char = chars[Math.floor(Math.random() * chars.length)];
+                    const x = i * fontSize;
+                    const y = drops[i] * fontSize;
+
+                    const brightness = Math.random();
+                    if (brightness > 0.98) {
+                        ctx.fillStyle = '#f0f6fc';
+                    } else {
+                        const alpha = 0.3 + (1 - drops[i] / H) * 0.7;
+                        ctx.fillStyle = 'rgba(0,255,65,' + alpha.toFixed(2) + ')';
+                    }
+
+                    ctx.fillText(char, x, y);
+
+                    if (y > H && Math.random() > 0.985) {
+                        drops[i] = 0;
+                    }
+                    drops[i] += 0.3 + Math.random() * 0.2;
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        // ─── Intersection Observer ──────────────────────────
+        (function() {
+            const cards = document.querySelectorAll('.service-card, .portfolio-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15
+            });
+
+            cards.forEach((el) => observer.observe(el));
+        })();
+
+        // ─── Smooth scroll & Mobile nav ────────────────────
+        (function() {
+            const burger = document.getElementById('burger');
+            const overlay = document.getElementById('navOverlay');
+            const navLinks = document.querySelectorAll('.nav a, .nav-overlay a');
+
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                overlay.classList.toggle('open');
+            });
+
+            navLinks.forEach((link) => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+
+                    burger.classList.remove('active');
+                    overlay.classList.remove('open');
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
